@@ -47,6 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+<script>
+document.querySelectorAll(".tab-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const tab = button.dataset.tab;
+
+        document.querySelectorAll(".tab-btn").forEach(btn =>
+            btn.classList.remove("active")
+        );
+        document.querySelectorAll(".tab-content").forEach(content =>
+            content.classList.remove("active")
+        );
+
+        button.classList.add("active");
+        document.getElementById(tab).classList.add("active");
+    });
+});
+</script>
 
 <body>
 
@@ -57,11 +74,21 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <a href="#inicio">Inicio</a>
+
+    <div class="nav-dropdown">
+        <a href="#nosotros" class="dropdown-toggle">Nosotros ▾</a>
+        <div class="dropdown-menu">
+            <a href="#mision">Misión</a>
+            <a href="#vision">Visión</a>
+            <a href="#ejecutivos">Ejecutivos</a>
+        </div>
+    </div>
+
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
 </header>
 
 <!-- HERO / BIENVENIDA -->
@@ -77,26 +104,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- NOSOTROS -->
 <section id="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <p>
-        Somos una empresa comprometida con la calidad, la excelencia técnica
-        y el cumplimiento de cada proyecto.
-    </p>
+    <section id="nosotros">
+    <h2>Nosotros</h2>
+
+    <div id="mision">
+        <h3>Misión</h3>
+        <p>
+            Nuestra misión es entregar soluciones de ingeniería y desarrollo
+            inmobiliario con altos estándares técnicos y compromiso profesional.
+        </p>
+    </div>
+
+    <div id="vision">
+        <h3>Visión</h3>
+        <p>
+            Ser una empresa referente en ingeniería y gestión de proyectos,
+            reconocida por su excelencia técnica y confianza.
+        </p>
+    </div>
+
+    <div id="ejecutivos">
+        <h3>Ejecutivos</h3>
+        <p>
+            Equipo profesional con experiencia en ingeniería, construcción y
+            desarrollo inmobiliario.
+        </p>
+    </div>
 </section>
 
 <!-- SERVICIOS -->
 <section id="servicios">
-    <h2>Servicios</h2>
-    <ul>
-        <li>Consultoría en ingeniería</li>
-        <li>Gestión y desarrollo de proyectos</li>
-        <li>Gerenciamiento y control de obras</li>
-    </ul>
+ <h2>Servicios</h2>
 </section>
+
 
 <!-- CONTACTO -->
 <section id="contacto">
-    
+    <h2>Contacto</h2>
     <form class="formulario" action="https://formspree.io/f/xqeebpra" method="POST">
 
         <label for="nombre">Nombre</label>
@@ -135,5 +179,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
-
