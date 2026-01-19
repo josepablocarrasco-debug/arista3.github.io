@@ -1,4 +1,6 @@
-/* VARIABLES CORPORATIVAS */
+/* =========================
+   VARIABLES CORPORATIVAS
+========================= */
 :root {
   --color-principal: #003366;
   --color-acento: #1f3c88;
@@ -6,14 +8,18 @@
   --color-texto: #333;
 }
 
-/* RESET BÁSICO */
+/* =========================
+   RESET BÁSICO
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* CUERPO */
+/* =========================
+   CUERPO
+========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: var(--color-fondo);
@@ -21,47 +27,165 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   HEADER
+========================= */
 .header {
-  background-color: var(--color-principal);
+  position: relative;
+  z-index: 1000;
+
+  background-color: rgba(0, 51, 102, 0.7);
+  backdrop-filter: saturate(120%) blur(4px);
+  -webkit-backdrop-filter: saturate(120%) blur(4px);
+
   color: white;
   padding: 10px 20px;
+
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* LOGO */
+.logo img {
+  max-height: 70px;
+  height: auto;
+
+  background-color: white;
+  padding: 10px;
+
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.12);
+
+  -webkit-mask-image: radial-gradient(circle, black 80%, transparent 100%);
+  mask-image: radial-gradient(circle, black 80%, transparent 100%);
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+nav {
+  display: flex;
   align-items: center;
 }
 
-.logo img {
-  max-height: 70px;
-}
-/* MENU */
-.header nav {
-    display: flex;
-    gap: 20px;
-}
-
-.header nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.header nav a:hover {
-    text-decoration: underline;
-}
-/* NAVEGACIÓN */
 nav a {
   color: white;
   margin-left: 20px;
   text-decoration: none;
   font-weight: bold;
+  position: relative;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-/* SECCIONES */
+/* =========================
+   DROPDOWN NOSOTROS
+========================= */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background-color: rgba(0, 51, 102, 0.95);
+  min-width: 180px;
+  border-radius: 6px;
+
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  z-index: 1100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255,255,255,0.12);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  height: 70vh;
+  background-image: url("img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-overlay {
+  position: relative;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-overlay h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero-overlay p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   SECCIONES
+========================= */
 section {
   max-width: 1100px;
   margin: 40px auto;
@@ -70,23 +194,42 @@ section {
   border-radius: 6px;
 }
 
-/* TÍTULOS */
 section h2 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: var(--color-principal);
+  font-size: 28px;
+  border-left: 4px solid var(--color-acento);
+  padding-left: 12px;
 }
 
-/* FOOTER */
-footer {
-  background-color: var(--color-principal);
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 60px;
-  font-size: 14px;
+section p {
+  max-width: 850px;
 }
 
-/* FORMULARIO */
+/* =========================
+   SERVICIOS
+========================= */
+#servicios ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#servicios li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#servicios li::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  color: var(--color-acento);
+}
+
+/* =========================
+   FORMULARIO
+========================= */
 .formulario {
   max-width: 500px;
   margin: 20px auto 0;
@@ -114,6 +257,13 @@ footer {
   min-height: 120px;
 }
 
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 2px rgba(31,60,136,0.15);
+}
+
 .formulario button {
   margin-top: 20px;
   padding: 12px;
@@ -123,44 +273,61 @@ footer {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
 }
 
 .formulario button:hover {
   background-color: #162f6b;
+  transform: translateY(-1px);
 }
 
-/* NOTA */
-.nota {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
+.formulario button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
 }
 
-/* BOTÓN WHATSAPP (opcional) */
+/* =========================
+   WHATSAPP CENTRADO
+========================= */
 .btn-whatsapp {
-    display: block;
-    max-width: 280px;
-    margin: 25px auto;          /* 👈 centra horizontalmente */
-    padding: 14px;
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+  display: block;
+  max-width: 280px;
+  margin: 25px auto;
+  padding: 14px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-whatsapp:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-/* RESPONSIVE */
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background-color: var(--color-principal);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
+    padding: 8px 15px;
     text-align: center;
   }
 
@@ -172,188 +339,24 @@ footer {
     margin: 0 10px;
   }
 
+  .logo img {
+    max-height: 55px;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-overlay h1 {
+    font-size: 34px;
+  }
+
+  .hero-overlay p {
+    font-size: 16px;
+  }
+
   section {
     padding: 25px;
     margin: 20px;
   }
 }
-
-.error {
-  color: #c62828;
-  font-size: 14px;
-  margin-top: 5px;
-}
-/* HEADER MEJORADO */
-.header {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-nav a {
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: white;
-  left: 0;
-  bottom: -5px;
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-section p {
-  max-width: 850px;
-}
-section h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  border-left: 4px solid var(--color-acento);
-  padding-left: 12px;
-}
-#servicios ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#servicios li {
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-#servicios li::before {
-  content: "▪";
-  position: absolute;
-  left: 0;
-  color: var(--color-acento);
-}
-.formulario input:focus,
-.formulario textarea:focus {
-  outline: none;
-  border-color: var(--color-acento);
-  box-shadow: 0 0 0 2px rgba(31,60,136,0.15);
-}
-
-.formulario button {
-  transition: background 0.3s ease, transform 0.1s ease;
-}
-
-.formulario button:hover {
-  transform: translateY(-1px);
-}
-
-.formulario button:disabled {
-  background-color: #999;
-  cursor: not-allowed;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-.whatsapp-float {
-  position: fixed;
-  width: 56px;
-  height: 56px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 26px;
-  line-height: 56px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-  text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.08);
-  opacity: 0.95;
-}
-
-/* HERO */
-.hero {
-    height: 70vh; /* pantalla completa */
-    background-image: url("img/hero.jpg"); /* cambia por tu imagen */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Oscurecer imagen para leer texto */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Texto encima */
-.hero-overlay {
-    position: relative;
-    color: white;
-    text-align: center;
-    max-width: 800px;
-    padding: 20px;
-}
-
-.hero-overlay h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-.hero-overlay p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-@media (max-width: 768px) {
-    .hero-overlay h1 {
-        font-size: 34px;
-    }
-
-    .hero-overlay p {
-        font-size: 16px;
-    }
-}
-/* Animación HERO */
-.hero-overlay {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1.2s ease-out forwards;
-}
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.hero-overlay {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1.2s ease-out forwards;
-    animation-delay: 0.3s;
-}
-
-@media (max-width: 768px) {
-    .header {
-        padding: 8px 15px;
-    }
-
-    .logo img {
-        max-height: 55px;
-    }
-}
-
-
