@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ARISTA3 | Ingeniería y Desarrollo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="ARISTA3 Ingeniería y Desarrollo. Estudio, planificación y ejecución de proyectos inmobiliarios.">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".formulario");
+  const boton = form.querySelector("button");
+
+  form.addEventListener("submit", function (e) {
+    const nombre = form.nombre.value.trim();
+    const email = form.email.value.trim();
+    const mensaje = form.mensaje.value.trim();
+
+    // Validaciones
+    if (nombre.length < 3) {
+      alert("Por favor ingresa tu nombre completo.");
+      e.preventDefault();
+      return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      alert("Por favor ingresa un correo válido.");
+      e.preventDefault();
+      return;
+    }
+
+    if (mensaje.length < 10) {
+      alert("El mensaje debe tener al menos 10 caracteres.");
+      e.preventDefault();
+      return;
+    }
+
+    // Feedback visual
+    boton.disabled = true;
+    boton.textContent = "Enviando...";
+  });
+});
+</script>
+
+<body>
+
+<!-- ENCABEZADO -->
+<header class="header">
+    <div class="logo">
+        <img src="img/arista3.jpg" alt="Logo ARISTA3">
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- INICIO -->
+<section id="inicio">
+    <h2>Bienvenidos a ARISTA3</h2>
+    <p>
+        Ofrecemos soluciones profesionales en el área de la ingeniería y
+        desarrollo inmobiliario. Estudio, planificación y ejecución de
+        proyectos, gerenciamiento y control de obras.
+    </p>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>
+        Somos una empresa comprometida con la calidad, la excelencia técnica
+        y el cumplimiento de cada proyecto.
+    </p>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+        <li>Consultoría en ingeniería</li>
+        <li>Gestión y desarrollo de proyectos</li>
+        <li>Gerenciamiento y control de obras</li>
+    </ul>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    
+    <form class="formulario" action="https://formspree.io/f/xqeebpra" method="POST">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <!-- Anti-spam -->
+        <input type="text" name="empresa" style="display:none">
+
+        <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <p class="nota">
+        Al enviar el formulario serás redirigido a WhatsApp.
+    </p>
+
+    <p>Email: <strong>contacto@arista3.cl</strong></p>
+</section>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <p>© 2026 ARISTA3 Ingeniería & Desarrollo - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
