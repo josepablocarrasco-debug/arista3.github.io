@@ -60,11 +60,51 @@
       </p>
     </div>
 
-    <div class="nosotros-card">
+    <a href="#equipo" class="nosotros-card ejecutivos-card">
       <h3>Ejecutivos</h3>
       <p>
-        Equipo profesional con experiencia en ingeniería, construcción y
-        desarrollo inmobiliario.
+        Conoce al equipo profesional que lidera nuestros proyectos
+        y asegura los más altos estándares técnicos.
+      </p>
+      
+    </a>
+
+  </div>
+</section>
+
+<!-- EQUIPO EJECUTIVO -->
+<section id="equipo" class="section-wide">
+  <h2>Equipo Ejecutivo</h2>
+
+  <div class="ejecutivos-grid">
+
+    <div class="ejecutivo-card">
+      <img src="img/ejecutivo1.jpg" alt="Jose Pablo Carrasco">
+      <h4>Jose Pablo Carrasco</h4>
+      <p class="cargo">Gerente General</p>
+      <p>
+        Ingeniero con amplia experiencia en desarrollo inmobiliario
+        y gestión de proyectos.
+      </p>
+    </div>
+
+    <div class="ejecutivo-card">
+      <img src="img/ejecutivo2.jpg" alt="Pedro Sepúlveda">
+      <h4>Pedro Sepúlveda</h4>
+      <p class="cargo">Gerente Técnico</p>
+      <p>
+        Especialista en planificación, coordinación técnica
+        y control de obras.
+      </p>
+    </div>
+
+    <div class="ejecutivo-card">
+      <img src="img/ejecutivo3.jpg" alt="Manuel Bravo">
+      <h4>Manuel Bravo</h4>
+      <p class="cargo">Gerente de Operaciones</p>
+      <p>
+        Profesional con sólida experiencia en supervisión
+        y ejecución de obras.
       </p>
     </div>
 
@@ -76,7 +116,6 @@
   <h2>Servicios</h2>
 
   <div class="servicios-grid">
-
     <div class="servicio-card">
       <h3>Consultoría en Ingeniería</h3>
       <p>Asesoría técnica especializada para proyectos inmobiliarios.</p>
@@ -91,7 +130,6 @@
       <h3>Control de Obras</h3>
       <p>Supervisión técnica y control de avance de obras.</p>
     </div>
-
   </div>
 </section>
 
@@ -129,11 +167,10 @@
   <p>© 2026 ARISTA3 Ingeniería & Desarrollo - Todos los derechos reservados</p>
 </footer>
 
-<!-- HEADER SCROLL -->
 <script>
 window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-  header.classList.toggle("scrolled", window.scrollY > 40);
+  document.querySelector(".header")
+    .classList.toggle("scrolled", window.scrollY > 40);
 });
 </script>
 
