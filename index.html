@@ -2,68 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>ARISTA3 | Ingeniería y Desarrollo</title>
+    <title>ARISTA3 Ingeniería y Desarrollo Inmobiliario | Gestión de Proyectos</title>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="ARISTA3 Ingeniería y Desarrollo. Estudio, planificación y ejecución de proyectos inmobiliarios.">
+content="Ingeniería, Servicios y Desarrollo inmobiliario. Gestión, planificación y control de proyectos.">
+
 
     <link rel="stylesheet" href="estilos.css">
 </head>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".formulario");
-  const boton = form.querySelector("button");
-
-  form.addEventListener("submit", function (e) {
-    const nombre = form.nombre.value.trim();
-    const email = form.email.value.trim();
-    const mensaje = form.mensaje.value.trim();
-
-    // Validaciones
-    if (nombre.length < 3) {
-      alert("Por favor ingresa tu nombre completo.");
-      e.preventDefault();
-      return;
-    }
-
-    if (!email.includes("@") || !email.includes(".")) {
-      alert("Por favor ingresa un correo válido.");
-      e.preventDefault();
-      return;
-    }
-
-    if (mensaje.length < 10) {
-      alert("El mensaje debe tener al menos 10 caracteres.");
-      e.preventDefault();
-      return;
-    }
-
-    // Feedback visual
-    boton.disabled = true;
-    boton.textContent = "Enviando...";
-  });
-});
-</script>
-<script>
-document.querySelectorAll(".tab-btn").forEach(button => {
-    button.addEventListener("click", () => {
-        const tab = button.dataset.tab;
-
-        document.querySelectorAll(".tab-btn").forEach(btn =>
-            btn.classList.remove("active")
-        );
-        document.querySelectorAll(".tab-content").forEach(content =>
-            content.classList.remove("active")
-        );
-
-        button.classList.add("active");
-        document.getElementById(tab).classList.add("active");
-    });
-});
-</script>
 
 <body>
 
@@ -74,21 +22,20 @@ document.querySelectorAll(".tab-btn").forEach(button => {
     </div>
 
     <nav>
-    <a href="#inicio">Inicio</a>
+        <a href="#inicio">Inicio</a>
 
-    <div class="nav-dropdown">
-        <a href="#nosotros" class="dropdown-toggle">Nosotros ▾</a>
-        <div class="dropdown-menu">
-            <a href="#mision">Misión</a>
-            <a href="#vision">Visión</a>
-            <a href="#ejecutivos">Ejecutivos</a>
+        <div class="nav-dropdown">
+            <a href="#nosotros" class="dropdown-toggle">Nosotros ▾</a>
+            <div class="dropdown-menu">
+                <a href="#mision">Misión</a>
+                <a href="#vision">Visión</a>
+                <a href="#ejecutivos">Ejecutivos</a>
+            </div>
         </div>
-    </div>
 
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-</nav>
-
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 </header>
 
 <!-- HERO / BIENVENIDA -->
@@ -104,7 +51,6 @@ document.querySelectorAll(".tab-btn").forEach(button => {
 
 <!-- NOSOTROS -->
 <section id="nosotros">
-    <section id="nosotros">
     <h2>Nosotros</h2>
 
     <div id="mision">
@@ -134,15 +80,17 @@ document.querySelectorAll(".tab-btn").forEach(button => {
 
 <!-- SERVICIOS -->
 <section id="servicios">
- <h2>Servicios</h2>
+    <h2>Servicios</h2>
+    <p>
+        Consultoría en ingeniería, gestión de proyectos y control de obras.
+    </p>
 </section>
-
 
 <!-- CONTACTO -->
 <section id="contacto">
     <h2>Contacto</h2>
-    <form class="formulario" action="https://formspree.io/f/xqeebpra" method="POST">
 
+    <form class="formulario" action="https://formspree.io/f/xqeebpra" method="POST">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -158,17 +106,14 @@ document.querySelectorAll(".tab-btn").forEach(button => {
         <button type="submit">Enviar mensaje</button>
     </form>
 
-<a class="btn-whatsapp"
-     href="https://wa.me/56994355361"
-     target="_blank"
-     rel="noopener">
-     Escríbenos por WhatsApp
-  </a>
-   
- <p class="nota">
-        Te responderemos a la brevedad.
-    </p>
+    <a class="btn-whatsapp"
+       href="https://wa.me/56994355361"
+       target="_blank"
+       rel="noopener">
+       Escríbenos por WhatsApp
+    </a>
 
+    <p class="nota">Te responderemos a la brevedad.</p>
     <p>Email: <strong>contacto@arista3.cl</strong></p>
 </section>
 
@@ -176,6 +121,43 @@ document.querySelectorAll(".tab-btn").forEach(button => {
 <footer>
     <p>© 2026 ARISTA3 Ingeniería & Desarrollo - Todos los derechos reservados</p>
 </footer>
+
+<!-- SCRIPT FORMULARIO -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".formulario");
+  if (!form) return;
+
+  const boton = form.querySelector("button");
+
+  form.addEventListener("submit", function (e) {
+    const nombre = form.nombre.value.trim();
+    const email = form.email.value.trim();
+    const mensaje = form.mensaje.value.trim();
+
+    if (nombre.length < 3) {
+      alert("Por favor ingresa tu nombre completo.");
+      e.preventDefault();
+      return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      alert("Por favor ingresa un correo válido.");
+      e.preventDefault();
+      return;
+    }
+
+    if (mensaje.length < 10) {
+      alert("El mensaje debe tener al menos 10 caracteres.");
+      e.preventDefault();
+      return;
+    }
+
+    boton.disabled = true;
+    boton.textContent = "Enviando...";
+  });
+});
+</script>
 
 </body>
 </html>
