@@ -174,3 +174,23 @@ section {
 
   .hero-overlay h1 { font-size: 34px; }
 }
+/* Hover solo para Ejecutivos */
+.ejecutivos-card {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ejecutivos-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+/* Hover solo para Servicios */
+.servicio-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
