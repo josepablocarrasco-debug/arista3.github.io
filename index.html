@@ -1,161 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>ARISTA3 Ingeniería y Desarrollo Inmobiliario | Gestión de Proyectos</title>
+  <meta charset="UTF-8">
+  <title>ARISTA3 Ingeniería y Desarrollo Inmobiliario | Gestión de Proyectos</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Ingeniería, servicios y desarrollo inmobiliario. Gestión, planificación y control de proyectos.">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-content="Ingeniería, Servicios y Desarrollo inmobiliario. Gestión, planificación y control de proyectos.">
-
-
-    <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
-<!-- ENCABEZADO -->
+<!-- HEADER -->
 <header class="header">
-    <div class="logo">
-        <img src="img/arista3.jpg" alt="Logo ARISTA3">
-    </div>
+  <div class="logo">
+    <img src="img/arista3.jpg" alt="Logo ARISTA3">
+  </div>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-
-        <div class="nav-dropdown">
-            <a href="#nosotros" class="dropdown-toggle">Nosotros ▾</a>
-            <div class="dropdown-menu">
-                <a href="#mision">Misión</a>
-                <a href="#vision">Visión</a>
-                <a href="#ejecutivos">Ejecutivos</a>
-            </div>
-        </div>
-
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
-<!-- HERO / BIENVENIDA -->
+<!-- HERO -->
 <section id="inicio" class="hero">
-    <div class="hero-overlay">
-        <h1>ARISTA3</h1>
-        <p>
-            Ingeniería y Desarrollo Inmobiliario<br>
-            Gestión, planificación y control de proyectos
-        </p>
-    </div>
+  <div class="hero-overlay">
+    <h1>ARISTA3</h1>
+    <p class="seo-subtitle">
+      Ingeniería y Servicios Profesionales<br>
+      Gestión, planificación y control de proyectos
+    </p>
+  </div>
 </section>
 
 <!-- NOSOTROS -->
 <section id="nosotros">
-    <h2>Nosotros</h2>
+  <h2>Nosotros</h2>
 
-    <div id="mision">
-        <h3>Misión</h3>
-        <p>
-            Nuestra misión es entregar soluciones de ingeniería y desarrollo
-            inmobiliario con altos estándares técnicos y compromiso profesional.
-        </p>
+  <div class="nosotros-grid">
+
+    <div class="nosotros-card">
+      <h3>Misión</h3>
+      <p>
+        Entregar soluciones de ingeniería y desarrollo inmobiliario con altos
+        estándares técnicos, eficiencia y compromiso profesional.
+      </p>
     </div>
 
-    <div id="vision">
-        <h3>Visión</h3>
-        <p>
-            Ser una empresa referente en ingeniería y gestión de proyectos,
-            reconocida por su excelencia técnica y confianza.
-        </p>
+    <div class="nosotros-card">
+      <h3>Visión</h3>
+      <p>
+        Ser una empresa referente en ingeniería y gestión de proyectos,
+        reconocida por su excelencia técnica y relaciones de largo plazo.
+      </p>
     </div>
 
-    <div id="ejecutivos">
-        <h3>Ejecutivos</h3>
-        <p>
-            Equipo profesional con experiencia en ingeniería, construcción y
-            desarrollo inmobiliario.
-        </p>
+    <div class="nosotros-card">
+      <h3>Ejecutivos</h3>
+      <p>
+        Equipo profesional con experiencia en ingeniería, construcción y
+        desarrollo inmobiliario.
+      </p>
     </div>
+
+  </div>
 </section>
 
 <!-- SERVICIOS -->
 <section id="servicios">
-    <h2>Servicios</h2>
-    <p>
-        Consultoría en ingeniería, gestión de proyectos y control de obras.
-    </p>
+  <h2>Servicios</h2>
+
+  <div class="servicios-grid">
+
+    <div class="servicio-card">
+      <h3>Consultoría en Ingeniería</h3>
+      <p>Asesoría técnica especializada para proyectos inmobiliarios.</p>
+    </div>
+
+    <div class="servicio-card">
+      <h3>Gestión de Proyectos</h3>
+      <p>Planificación y coordinación integral de proyectos.</p>
+    </div>
+
+    <div class="servicio-card">
+      <h3>Control de Obras</h3>
+      <p>Supervisión técnica y control de avance de obras.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto">
-    <h2>Contacto</h2>
+  <h2>Contacto</h2>
 
-    <form class="formulario" action="https://formspree.io/f/xqeebpra" method="POST">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
+  <form class="formulario" action="https://formspree.io/f/xqeebpra" method="POST">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" name="mensaje" required></textarea>
 
-        <!-- Anti-spam -->
-        <input type="text" name="empresa" style="display:none">
+    <input type="text" name="empresa" style="display:none">
 
-        <button type="submit">Enviar mensaje</button>
-    </form>
+    <button type="submit">Enviar mensaje</button>
+  </form>
 
-    <a class="btn-whatsapp"
-       href="https://wa.me/56994355361"
-       target="_blank"
-       rel="noopener">
-       Escríbenos por WhatsApp
-    </a>
+  <a class="btn-whatsapp"
+     href="https://wa.me/56994355361"
+     target="_blank"
+     rel="noopener">
+    Escríbenos por WhatsApp
+  </a>
 
-    <p class="nota">Te responderemos a la brevedad.</p>
-    <p>Email: <strong>contacto@arista3.cl</strong></p>
+  <p class="nota">Te responderemos a la brevedad.</p>
+  <p>Email: <strong>contacto@arista3.cl</strong></p>
 </section>
 
-<!-- PIE DE PÁGINA -->
 <footer>
-    <p>© 2026 ARISTA3 Ingeniería & Desarrollo - Todos los derechos reservados</p>
+  <p>© 2026 ARISTA3 Ingeniería & Desarrollo - Todos los derechos reservados</p>
 </footer>
 
-<!-- SCRIPT FORMULARIO -->
+<!-- HEADER SCROLL -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".formulario");
-  if (!form) return;
-
-  const boton = form.querySelector("button");
-
-  form.addEventListener("submit", function (e) {
-    const nombre = form.nombre.value.trim();
-    const email = form.email.value.trim();
-    const mensaje = form.mensaje.value.trim();
-
-    if (nombre.length < 3) {
-      alert("Por favor ingresa tu nombre completo.");
-      e.preventDefault();
-      return;
-    }
-
-    if (!email.includes("@") || !email.includes(".")) {
-      alert("Por favor ingresa un correo válido.");
-      e.preventDefault();
-      return;
-    }
-
-    if (mensaje.length < 10) {
-      alert("El mensaje debe tener al menos 10 caracteres.");
-      e.preventDefault();
-      return;
-    }
-
-    boton.disabled = true;
-    boton.textContent = "Enviando...";
-  });
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+  header.classList.toggle("scrolled", window.scrollY > 40);
 });
 </script>
 
