@@ -6,10 +6,13 @@
   --color-acento: #1f3c88;
   --color-fondo: #f4f4f4;
   --color-texto: #333;
+
+  /* Altura real segura del header */
+  --header-offset: 140px;
 }
 
 /* =========================
-   RESET BÁSICO
+   RESET
 ========================= */
 * {
   margin: 0;
@@ -17,58 +20,66 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* =========================
-   CUERPO
+   BODY
 ========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto);
   line-height: 1.6;
-}
 
-html {
-  scroll-behavior: smooth;
+  /* Compensa header fijo */
+  padding-top: var(--header-offset);
 }
 
 /* =========================
-   HEADER
+   HEADER STICKY (COMPACTO)
 ========================= */
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
 
-  background-color: rgba(0, 51, 102, 0.7);
-  backdrop-filter: saturate(120%) blur(4px);
-  -webkit-backdrop-filter: saturate(120%) blur(4px);
+  background-color: rgba(0, 51, 102, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 
-  color: white;
-  padding: 10px 20px;
+  padding: 6px 20px;          /* 👈 MÁS BAJO */
+  min-height: 58px;           /* 👈 controla altura */
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
+
+.header.scrolled {
+  background-color: rgba(0, 51, 102, 0.9);
+  padding: 6px 20px;          /* 👈 AÚN MÁS BAJO */
+  min-height: 56px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
 
 /* LOGO */
 .logo img {
-  max-height: 80px;
-  height: auto;
-
+  max-height: 75px;
   background-color: white;
-  padding: 10px;
-
+  padding: 8px;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(0,0,0,0.12);
-
-  -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%);
-  mask-image: radial-gradient(circle, black 100%, transparent 100%);
 }
 
 /* =========================
-   NAVEGACIÓN
+   NAV
 ========================= */
 nav {
   display: flex;
@@ -80,7 +91,6 @@ nav a {
   margin-left: 20px;
   text-decoration: none;
   font-weight: bold;
-  position: relative;
 }
 
 nav a:hover {
@@ -88,62 +98,21 @@ nav a:hover {
 }
 
 /* =========================
-   DROPDOWN NOSOTROS
-========================= */
-.nav-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  background-color: rgba(0, 51, 102, 0.95);
-  min-width: 180px;
-  border-radius: 6px;
-
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-  z-index: 1100;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.dropdown-menu a:hover {
-  background-color: rgba(255,255,255,0.12);
-}
-
-.nav-dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* =========================
    HERO
 ========================= */
 .hero {
   height: 70vh;
+  min-height: 520px;
+  max-height: 720px;
+
   background-image: url("img/hero.jpg");
   background-size: cover;
   background-position: center;
 
   position: relative;
-  z-index: 1;
-
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .hero::before {
@@ -159,24 +128,24 @@ nav a:hover {
   text-align: center;
   max-width: 800px;
   padding: 20px;
-
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1.2s ease-out forwards;
-  animation-delay: 0.3s;
+  animation: fadeUp 1.2s ease forwards;
 }
 
 .hero-overlay h1 {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.hero-overlay p {
-  font-size: 20px;
-  line-height: 1.4;
+.seo-subtitle {
+  font-size: 18px;
+  opacity: 0.85;
 }
 
 @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -188,18 +157,21 @@ nav a:hover {
 ========================= */
 section {
   max-width: 1100px;
-  margin: 40px auto;
-  padding: 40px;
+  margin: 0 auto 60px;
+  padding: 80px 40px;
   background-color: white;
   border-radius: 6px;
 }
 
 section h2 {
-  margin-bottom: 20px;
-  color: var(--color-principal);
   font-size: 28px;
+  margin-bottom: 25px;
+  color: var(--color-principal);
   border-left: 4px solid var(--color-acento);
   padding-left: 12px;
+
+  /* FIX DEFINITIVO DE ANCLAS */
+  scroll-margin-top: var(--header-offset);
 }
 
 section p {
@@ -209,22 +181,49 @@ section p {
 /* =========================
    SERVICIOS
 ========================= */
-#servicios ul {
-  list-style: none;
-  padding-left: 0;
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 30px;
 }
 
-#servicios li {
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 10px;
+.servicio-card {
+  background-color: #f9fafc;
+  padding: 25px;
+  border-radius: 8px;
+  border-top: 4px solid var(--color-acento);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-#servicios li::before {
-  content: "▪";
-  position: absolute;
-  left: 0;
-  color: var(--color-acento);
+.servicio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   NOSOTROS
+========================= */
+.nosotros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.nosotros-card {
+  background-color: #f9fafc;
+  padding: 28px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-acento);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nosotros-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 /* =========================
@@ -232,7 +231,7 @@ section p {
 ========================= */
 .formulario {
   max-width: 500px;
-  margin: 20px auto 0;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
@@ -253,15 +252,8 @@ section p {
 }
 
 .formulario textarea {
-  resize: vertical;
   min-height: 120px;
-}
-
-.formulario input:focus,
-.formulario textarea:focus {
-  outline: none;
-  border-color: var(--color-acento);
-  box-shadow: 0 0 0 2px rgba(31,60,136,0.15);
+  resize: vertical;
 }
 
 .formulario button {
@@ -273,21 +265,10 @@ section p {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.1s ease;
-}
-
-.formulario button:hover {
-  background-color: #162f6b;
-  transform: translateY(-1px);
-}
-
-.formulario button:disabled {
-  background-color: #999;
-  cursor: not-allowed;
 }
 
 /* =========================
-   WHATSAPP CENTRADO
+   WHATSAPP
 ========================= */
 .btn-whatsapp {
   display: block;
@@ -300,13 +281,6 @@ section p {
   text-align: center;
   font-weight: bold;
   border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.btn-whatsapp:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
 }
 
 /* =========================
@@ -317,46 +291,28 @@ footer {
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 60px;
   font-size: 14px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    padding: 8px 15px;
-    text-align: center;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-
-  nav a {
-    margin: 0 10px;
-  }
-
-  .logo img {
-    max-height: 55px;
+@media (max-width: 900px) {
+  .servicios-grid,
+  .nosotros-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero {
-    height: 50vh;
+    height: 55vh;
+    min-height: 420px;
   }
 
   .hero-overlay h1 {
     font-size: 34px;
   }
 
-  .hero-overlay p {
-    font-size: 16px;
-  }
-
   section {
-    padding: 25px;
-    margin: 20px;
+    padding: 60px 25px;
   }
 }
