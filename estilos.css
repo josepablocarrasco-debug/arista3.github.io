@@ -6,6 +6,11 @@
   --header-offset: 90px;
 }
 
+:root {
+  --section-padding-top: 20px;
+  --section-padding-bottom: 80px;
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -102,8 +107,8 @@ nav a {
 ========================= */
 section {
   max-width: 1100px;
-  margin: 0 auto 100px;
-  padding: 80px 40px;
+  margin: 0 auto;
+  padding: var(--section-padding-top) 40px var(--section-padding-bottom);
   background: #fff;
   border-radius: 6px;
   scroll-margin-top: var(--header-offset);
@@ -112,6 +117,12 @@ section {
 .section-wide {
   max-width: 1400px;
 }
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
 
 /* =========================
    NOSOTROS
@@ -414,4 +425,11 @@ footer {
   line-height: 1.65;
 opacity: 1;
   margin-top: 0;
+}
+/* =========================
+   AJUSTE SECCIÓN EQUIPO
+========================= */
+
+.section-equipo {
+  padding-top: 20px; /* antes era 80px */
 }
