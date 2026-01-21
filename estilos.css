@@ -161,6 +161,9 @@ section {
   transform: translateY(-6px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.18);
 }
+.ejecutivo-card .cargo {
+  margin-bottom: 12px;
+}
 
 .ejecutivo-card img {
   width: 120px;
@@ -388,4 +391,26 @@ footer {
   width: 20px;
   height: 20px;
   fill: #ffffff;
+}
+/* =========================
+   EJECUTIVOS - DETALLE
+========================= */
+
+.ejecutivo-card .cargo {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.ejecutivo-card .titulo-profesional {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.ejecutivo-card .resena {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 0;
 }
