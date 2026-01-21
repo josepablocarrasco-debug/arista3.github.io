@@ -339,3 +339,26 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   EJECUTIVOS (CARD LINK FIX)
+========================= */
+
+.ejecutivos-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ejecutivos-card * {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Estados del link */
+.ejecutivos-card:visited,
+.ejecutivos-card:hover,
+.ejecutivos-card:active {
+  color: inherit;
+  text-decoration: none;
+}
