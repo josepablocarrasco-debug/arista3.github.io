@@ -6,6 +6,7 @@
   --header-offset: 90px;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +23,9 @@ body {
   padding-top: var(--header-offset);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -56,7 +59,9 @@ nav a {
   text-decoration: none;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
   height: 70vh;
   min-height: 520px;
@@ -92,10 +97,12 @@ nav a {
   opacity: 0.9;
 }
 
-/* SECCIONES */
+/* =========================
+   SECCIONES
+========================= */
 section {
   max-width: 1100px;
-  margin: 0 auto 80px;
+  margin: 0 auto 100px;
   padding: 80px 40px;
   background: #fff;
   border-radius: 6px;
@@ -106,7 +113,9 @@ section {
   max-width: 1400px;
 }
 
-/* NOSOTROS */
+/* =========================
+   NOSOTROS
+========================= */
 .nosotros-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -121,13 +130,18 @@ section {
   box-shadow: 0 4px 10px rgba(0,0,0,.08);
 }
 
-.ejecutivos-card {
-  text-decoration: none;
-  color: inherit;
+.nosotros-card h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
 }
 
+.nosotros-card p {
+  font-size: 15px;
+}
 
-/* EJECUTIVOS */
+/* =========================
+   EJECUTIVOS
+========================= */
 .ejecutivos-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -140,6 +154,12 @@ section {
   padding: 30px 20px;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ejecutivo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
 }
 
 .ejecutivo-card img {
@@ -150,7 +170,9 @@ section {
   margin-bottom: 16px;
 }
 
-/* SERVICIOS */
+/* =========================
+   SERVICIOS (CARDS LINK)
+========================= */
 .servicios-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -158,110 +180,27 @@ section {
 }
 
 .servicio-card {
+  display: block;
   background: #f9fafc;
   padding: 25px;
   border-radius: 8px;
   border-top: 4px solid var(--color-acento);
-}
 
-/* CONTACTO */
-.formulario {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .nosotros-grid,
-  .servicios-grid,
-  .ejecutivos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-overlay h1 { font-size: 34px; }
-}
-/* Hover solo para Ejecutivos */
-.ejecutivos-card {
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
+
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.ejecutivos-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-}
-/* Hover solo para Servicios */
-.servicio-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.servicio-card * {
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 .servicio-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-}
-
-/* =========================
-   BOTÓN WHATSAPP (CTA)
-========================= */
-.btn-whatsapp {
-  display: block;
-  width: fit-content;
-
-  margin: 35px auto 25px;   /* 👈 centrado + separación inferior */
-  padding: 16px 36px;       /* 👈 más grande */
-
-  background-color: #25D366;
-  color: #ffffff;
-
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-
-  border-radius: 50px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn-whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
-}
-
-/* =========================
-   FOOTER CORPORATIVO
-========================= */
-footer {
-  background-color: rgba(0, 51, 102, 0.95); /* mismo azul del header */
-  color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  padding: 18px 20px;
-  font-size: 14px;
-
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.25);
-}
-
-.servicios-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 1100px) {
-  .servicios-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .servicios-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .servicio-card h3 {
@@ -273,10 +212,59 @@ footer {
   font-size: 15px;
   line-height: 1.5;
 }
+
+/* =========================
+   CONTACTO
+========================= */
+.formulario {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   BOTÓN WHATSAPP
+========================= */
+.btn-whatsapp {
+  display: block;
+  width: fit-content;
+  margin: 35px auto 25px;
+  padding: 16px 36px;
+  background-color: #25D366;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background-color: rgba(0, 51, 102, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.25);
+}
+
 /* =========================
    SUBPÁGINAS SERVICIOS
 ========================= */
-
 .servicio-detalle {
   max-width: 900px;
   margin: 0 auto 80px;
@@ -324,11 +312,30 @@ footer {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,.25);
 }
-/* Servicios linkeables */
-.servicio-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+@media (max-width: 900px) {
+  .nosotros-grid,
+  .servicios-grid,
+  .ejecutivos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-overlay h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 700px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+}
