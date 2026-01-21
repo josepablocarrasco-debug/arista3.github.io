@@ -80,9 +80,17 @@ nav a {
   text-align: center;
 }
 
-.hero-overlay h1 { font-size: 48px; }
+.hero-overlay h1 {
+  font-size: 52px;
+  letter-spacing: 0.25em;
+  margin-bottom: 14px;
+}
 
-.seo-subtitle { opacity: .85; }
+.seo-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
 
 /* SECCIONES */
 section {
@@ -238,5 +246,89 @@ footer {
   font-size: 14px;
 
   box-shadow: 0 -3px 10px rgba(0,0,0,0.25);
+}
+
+.servicios-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.servicio-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.servicio-card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+/* =========================
+   SUBPÁGINAS SERVICIOS
+========================= */
+
+.servicio-detalle {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 80px 40px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.servicio-detalle h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: var(--color-principal);
+}
+
+.servicio-intro {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.servicio-detalle h2 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.servicio-detalle ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.btn-servicio {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 32px;
+  background: var(--color-acento);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: bold;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-servicio:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+/* Servicios linkeables */
+.servicio-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
