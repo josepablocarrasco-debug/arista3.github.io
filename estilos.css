@@ -433,3 +433,19 @@ opacity: 1;
 .section-equipo {
   padding-top: 20px; /* antes era 80px */
 }
+.btn-brochure{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    background:#1976d2;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-brochure:hover{
+    background:#125aa0;
+    transform:translateY(-2px);
+}
